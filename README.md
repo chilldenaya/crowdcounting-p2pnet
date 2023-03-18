@@ -1,3 +1,17 @@
+# Requirements
+```
+CONDA_SUBDIR=osx-64 conda create -n py36osx64 python=3.6
+conda activate py36osx64
+conda config --env --set subdir osx-64
+
+conda install pytorch==1.5.1 torchvision==0.6.1 cudatoolkit=10.2 -c pytorch
+conda install pytorch==1.5.1 torchvision==0.6.1 -c pytorch
+conda install -c menpo opencv
+conda install -c anaconda scipy
+
+python run_test.py --weight_path ./weights/SHTechA.pth --output_dir ./logs/
+```
+
 # P2PNet (ICCV2021 Oral Presentation)
 
 This repository contains codes for the official implementation in PyTorch of **P2PNet** as described in [Rethinking Counting and Localization in Crowds: A Purely Point-Based Framework](https://arxiv.org/abs/2107.12746).
