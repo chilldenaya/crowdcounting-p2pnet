@@ -31,7 +31,6 @@ model_paths = {
 
 
 class VGG(nn.Module):
-
     def __init__(self, features, num_classes=1000, init_weights=True):
         super(VGG, self).__init__()
         self.features = features
