@@ -1,15 +1,18 @@
 # Requirements
 ```
-CONDA_SUBDIR=osx-64 conda create -n py36osx64 python=3.6
-conda activate py36osx64
-conda config --env --set subdir osx-64
+-- download https://download.pytorch.org/models/vgg16-397923af.pth
+-- download https://download.pytorch.org/models/vgg16_bn-6c64b313.pth
+-- save both of them in ./weights
 
-conda install pytorch==1.5.1 torchvision==0.6.1 cudatoolkit=10.2 -c pytorch
-conda install pytorch==1.5.1 torchvision==0.6.1 -c pytorch
-conda install -c menpo opencv
-conda install -c anaconda scipy
+conda create -n py36 python=3.6
+conda activate py36
 
-python run_test.py --weight_path ./weights/SHTechA.pth --output_dir ./logs/
+conda install -y pytorch==1.5.1 torchvision==0.6.1 cudatoolkit=10.2 -c pytorch
+conda install -y -c menpo opencv
+conda install -y -c anaconda scipy
+
+CUDA_VISIBLE_DEVICES=0 python run_test.py --weight_path ./weights/SHTechA.pth --output_dir ./logs/
+
 ```
 
 # P2PNet (ICCV2021 Oral Presentation)
