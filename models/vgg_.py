@@ -32,6 +32,10 @@ model_urls = {
 
 
 model_paths = {
+    "vgg11_bn": "/home/internet/itb/PPt/CrowdCounting-P2PNet/weights/vgg11_bn-6002323d.pth",
+    "vgg11": "/home/internet/itb/PPt/CrowdCounting-P2PNet/weights/vgg11-bbd30ac9.pth",
+    "vgg13_bn": "/home/internet/itb/PPt/CrowdCounting-P2PNet/weights/vgg13_bn-abd245e5.pth",
+    "vgg13": "/home/internet/itb/PPt/CrowdCounting-P2PNet/weights/vgg13-c768596a.pth",
     "vgg16_bn": "/home/internet/itb/PPt/CrowdCounting-P2PNet/weights/vgg16_bn-6c64b313.pth",
     "vgg16": "/home/internet/itb/PPt/CrowdCounting-P2PNet/weights/vgg16-397923af.pth",
 }

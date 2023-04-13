@@ -2,11 +2,6 @@
 """
 Backbone modules.
 """
-from collections import OrderedDict
-
-import torch
-import torch.nn.functional as F
-import torchvision
 from torch import nn
 
 import models.vgg_ as models
@@ -23,11 +18,17 @@ class BackboneBase_VGG(nn.Module):
         super().__init__()
         features = list(backbone.features.children())
         if return_interm_layers:
+            print(features)
             if name == "vgg16_bn":
                 self.body1 = nn.Sequential(*features[:13])
                 self.body2 = nn.Sequential(*features[13:23])
                 self.body3 = nn.Sequential(*features[23:33])
                 self.body4 = nn.Sequential(*features[33:43])
+            elif name == "vgg11_bn":
+                self.body1 = nn.Sequential(*features[:7])
+                self.body2 = nn.Sequential(*features[7:14])
+                self.body3 = nn.Sequential(*features[14:21])
+                self.body4 = nn.Sequential(*features[21:28])
             else:
                 self.body1 = nn.Sequential(*features[:9])
                 self.body2 = nn.Sequential(*features[9:16])
@@ -64,6 +65,14 @@ class Backbone_VGG(BackboneBase_VGG):
             backbone = models.vgg16_bn(pretrained=True)
         elif name == "vgg16":
             backbone = models.vgg16(pretrained=True)
+        elif name == "vgg11_bn":
+            backbone = models.vgg11_bn(pretrained=True)
+        elif name == "vgg11":
+            backbone = models.vgg11(pretrained=True)
+        elif name == "vgg13_bn":
+            backbone = models.vgg13_bn(pretrained=True)
+        elif name == "vgg13":
+            backbone = models.vgg13(pretrained=True)
         num_channels = 256
         super().__init__(backbone, num_channels, name, return_interm_layers)
 

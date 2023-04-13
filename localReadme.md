@@ -19,3 +19,15 @@ CUDA_VISIBLE_DEVICES=0 python train.py --data_root $DATA_ROOT \
  --batch_size 8 \
  --eval_freq 1 \
  --gpu_id 0
+
+testing result:
+
+```
+vgg11_bn:
+vgg13_bn:
+vgg16_bn: 2.13022 sec
+
+```
+
+video
+CUDA_VISIBLE_DEVICES=0 python run_video.py --weight_path ./weights/SHTechA.pth
